@@ -8,7 +8,7 @@ module.exports = function (app) {
 			updatePostById : updatePostById,
 			deletePostById : deletePostById,
 			findPostsAll: findPostsAll,
-			findPostById: findPostById, 
+			findPostById: findPostById,
 			findPostByTag: findPostByTag,
 			findPostByUserId: findPostByUserId,
 		};
@@ -34,7 +34,7 @@ module.exports = function (app) {
 		}
 
 		function deletePostById(id){
-			for (var i=0,i<posts.length;i++){
+			for (var i=0;i<posts.length;i++){
 				if(posts[i].id==id){
 					posts.splice(i,1);
 					break;

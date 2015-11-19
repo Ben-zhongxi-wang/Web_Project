@@ -9,8 +9,8 @@ module.exports = function (app) {
 			deletePostById : deletePostById,
 			findPostsAll: findPostsAll,
 			findPostById: findPostById,
-			findPostByTag: findPostByTag,
-			findPostByUserId: findPostByUserId,
+			findPostsByTag: findPostsByTag,
+			findPostsByUserId: findPostsByUserId,
 		};
 
 		return api;
@@ -73,7 +73,7 @@ module.exports = function (app) {
 			return postsByTag;
 		}
 
-		function findPostByUserId(userId){
+		function findPostsByUserId(userId){
 			var postsByUser = [];
 			for(var i=0;i<posts.length;i++){
 					if(posts[i].userId==userId){

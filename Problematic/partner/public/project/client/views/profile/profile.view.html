@@ -1,0 +1,131 @@
+<div id="page-wrapper" ng-controller="ProfileController" ng-model="user">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="page-header">
+				Profile
+				<div class="pull-right">
+					<a type="submit" data-toggle="tooltip" title="edit this User" ng-click="editUser()">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+					<a type="submit" title="delete this User" ng-click="deleteUser()">
+						<span class="glyphicon glyphicon-remove"></span>
+					</a>
+				</div>
+			</h1>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<div class="col-lg-10">
+			<ul class="nav nav-tabs">
+				<li role="presentation"class="active"><a>Buyer</a></li>
+				<li role="presentation"><a href="#/seller">Seller</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3 col-lg-3 " align="center">
+			<img alt="User Pic" src="{{user.image}}" class="img-circle img-responsive">
+		</div>
+
+		<div class="col-md-9 col-lg-9">
+			<table class="table table-user-information">
+				<tbody>
+					<tr>
+						<td>username</td>
+						<td>{{user.username}}</td>
+					</tr>
+					<tr>
+						<td>name</td>
+						<td>{{user.lastname}},{{user.firstname}}</td>
+					</tr>
+					<tr>
+						<td>Date of Birth</td>
+						<td>{{user.age}}</td>
+					</tr>
+					<tr>
+						<td>Gender</td>
+						<td>{{user.gender}}</td>
+					</tr>
+					<tr>
+						<td>Home Address</td>
+						<td>{{user.address}}</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><a href="">{{user.email}}</a></td>
+					</tr>
+					<tr>
+						<td>Phone Number</td>
+						<td>{{user.phone}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class=" col-md-12 ">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<h3> Favourite List </h3>
+				</tr>
+				<tr>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Image
+					</td>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Name
+					</td>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Description
+					</td>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Action
+					</td>
+				</tr>
+				<tr>
+					<td/>
+					<td/>
+					<td>
+						<input ng-model="like.description" type="text" class="form-control" placeholder="description">
+					</td>
+					<td>
+						<div class="pull-right">
+							<a type="submit" data-toggle="tooltip" title="update the selected descriotion of like" ng-click="updateLike(like)">
+								<span class="glyphicon glyphicon-ok"></span>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="like in likes">
+					<td> <img src="{{like.bookimage}}" class="icon img-circle img-responsive"></td>
+					<td> {{like.bookname}}</td>
+					<td> {{like.description}}</td>
+					<td>
+						<div class="pull-right">
+							<a type="submit" data-toggle="tooltip" title="change description of this book" ng-click="removeLike(like)">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+							<a type="submit" data-toggle="tooltip" title="throw it out of your favourite list" ng-click="selectLike(like)">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+							<a type="submit" data-toggle="tooltip" title="enter book's profile" ng-click="enterBook(like.bookname)">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

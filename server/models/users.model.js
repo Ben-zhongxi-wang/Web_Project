@@ -18,7 +18,7 @@ module.exports=function(app){
 		return user;
 	}
 
-	function findAll(){
+	function findUsersAll(){
 		return users;
 	}
 

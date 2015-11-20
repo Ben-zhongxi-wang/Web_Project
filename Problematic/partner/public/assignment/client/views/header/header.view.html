@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Navigation -->
+<div ng-controller="HeaderController">
+    <!-- /.navbar-header -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Form Maker</a>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li>
+            <a ng-class="{'link_active':isActive('/register')}" href="#/register"> Register </a>
+        </li>
+        <li>
+            <a ng-class="{'link_active':isActive('/login')}" href="#/login"> Login </a>
+        </li>
+        <li>
+            <a href="#"> Username </a>
+        </li>
+        <li>
+            <a href="#"> Logout </a>
+        </li>
+    </ul>
+    <!-- /.navbar-top-links -->
+</div>
+

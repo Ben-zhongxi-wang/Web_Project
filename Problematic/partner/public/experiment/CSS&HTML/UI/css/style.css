@@ -1,0 +1,17 @@
+#p1{
+	color: red;
+	width: 300px;
+	background-color: yellow;
+	padding: 50px;
+	margin: 50px;
+	broder: 10px red dotted;
+}
+
+#intro{
+	color:blue;
+	background-color:yellow;
+}
+
+.generalHeader{
+	color: blue;
+}

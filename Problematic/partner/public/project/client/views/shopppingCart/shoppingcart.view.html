@@ -1,0 +1,47 @@
+<div id="page-wrapper" ng-controller="ShoppingCartController">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="page-header">
+				Shopping Cart
+				<div class="pull-right">
+					<a type="submit" data-toggle="tooltip" title="check out" ng-click="goCheck()">
+						<span class="glyphicon glyphicon-usd"></span>
+					</a>
+				</div>
+			</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<table class="table table-stripped" align="center">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Actions<th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in records">
+					<td> {{record.bookname}} </td>
+					<td>
+						<div class="col-sm-6">
+							<input type="number" class="form-control" value="{{record.quantity}}">
+						</div>
+					</td>
+					<td> {{record.price}} </td>
+					<td>
+						<a type="submit" data-toggle="tooltip" title="enter book profile" ng-click="enterBook(record.bookname)">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+						<a type="submit" data-toggle="tooltip" title="remove item from shopping cart" ng-click="deleteRecord(items)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

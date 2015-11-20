@@ -6,7 +6,7 @@ module.exports = function (app,model){
   app.get("api/project/post", findPostsAll)
   app.get("api/project/post/id/:postId", findPostById)
   app.get("api/project/post/tag/:tag",findPostsByTag)
-  app.get("/api/assignment/post/user/:userId",findPostsByUserId)
+  app.get("/api/project/post/user/:userId",findPostsByUserId)
 
   function createPost(req,res){
     var newPost = req.body;
@@ -33,7 +33,7 @@ module.exports = function (app,model){
     res.json(model.findPostById(id));
   }
 
-  function findPostByTag(req,res){
+  function findPostsByTag(req,res){
     var tag=req.params.tag;
     res.json(model.findPostsByTag(tag));
   }

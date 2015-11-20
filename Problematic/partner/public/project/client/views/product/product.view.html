@@ -1,0 +1,90 @@
+<div id="page-wrapper" ng-controller="ProductController">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="page-header">
+				Book Profile
+			</h1>
+		</div>
+	</div>
+
+	<div class="row" ng-model="book">
+		<div class="col-md-3 col-lg-3 " align="center">
+			<img alt="Book Pic" src="{{book.image}}" class="img-circle img-responsive ">
+		</div>
+
+		<div class="col-md-9 col-lg-9">
+			<table class="table table-user-information">
+				<tbody>
+				<tr>
+					<td>ISBN</td>
+					<td><a href="">{{book.isbn}}</a></td>
+				</tr>
+				<tr>
+					<td>Title</td>
+					<td>{{book.name}}</td>
+				</tr>
+				<tr>
+					<td>Author</td>
+					<td>{{book.author}}</td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td>{{book.price}}</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class=" col-md-12 ">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<h3> Comment </h3>
+				</tr>
+				<tr>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Author
+					</td>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Comment
+					</td>
+					<td>
+						<a class="glyphicon glyphicon-triangle-bottom"></a>
+						Action
+					</td>
+				</tr>
+				<tr>
+					<td/>
+					<td>
+						<input type="text" class="form-control" ng-model="comment.comment">
+					</td>
+					<td>
+						<div class="pull-right">
+							<a type="submit" ng-click="addComment(comment)">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="comment in comments">
+					<td> {{comment.username}}</td>
+					<td> {{comment.comment}}</td>
+					<td>
+						<div class="pull-right">
+							<a type="submit" ng-click="removeComment(comment)">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

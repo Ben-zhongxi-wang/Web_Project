@@ -4,7 +4,7 @@ var posts = require ("./posts.mockup.json");
 module.exports = function (app) {
 
 		var api = {
-			createPost: creatPost,
+			createPost: createPost,
 			updatePostById : updatePostById,
 			deletePostById : deletePostById,
 			findPostsAll: findPostsAll,

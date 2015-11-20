@@ -1,0 +1,37 @@
+<div id="page-wrapper" ng-controller="ShoppingRecordController">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="page-header">
+				Shopping Record
+			</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<table class="table table-stripped" align="center">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Date</th>
+					<th>Price</th>
+					<th>Actions<th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in records">
+					<td> {{record.bookname}} </td>
+					<td> {{record.quantity}} </td>
+					<td> {{record.date}} </td>
+					<td> {{record.price}} </td>
+					<td>
+						<a type="submit" data-toggle="tooltip" title="enter book profile" ng-click="enterBook(record.bookname)">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

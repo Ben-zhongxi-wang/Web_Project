@@ -6,6 +6,7 @@ module.exports=function(app){
 		findUsersAll: findUsersAll,
 		findUserById: findUserById,
 		findUserByAccount: findUserByAccount,
+		findUserByCredentials: findUserByCredentials,
 		updateUserById: updateUserById,
 		deleteUserById: deleteUserById
 	};
@@ -41,6 +42,19 @@ module.exports=function(app){
 			}
 		}
 		return userByAccount;
+	}
+
+	function findUserByCredentials(credentials){
+		var userByCredentials={}
+		for (var i=0; i<users.length;i++){
+			if (users[i].username == credentials.username
+			&& users[i].activation==credentials.activation)
+				{
+					userByCredentials=users[i];
+					break;
+				}
+		}
+		return userByCredentials;
 	}
 
 

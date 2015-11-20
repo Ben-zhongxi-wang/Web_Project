@@ -8,9 +8,9 @@ module.exports = function (app) {
 			updatePostById : updatePostById,
 			deletePostById : deletePostById,
 			findPostsAll: findPostsAll,
-			findPostById: findPostById, 
-			findPostByTag: findPostByTag,
-			findPostByUserId: findPostByUserId,
+			findPostById: findPostById,
+			findPostsByTag: findPostsByTag,
+			findPostsByUserId: findPostsByUserId,
 		};
 
 		return api;
@@ -34,7 +34,7 @@ module.exports = function (app) {
 		}
 
 		function deletePostById(id){
-			for (var i=0,i<posts.length;i++){
+			for (var i=0;i<posts.length;i++){
 				if(posts[i].id==id){
 					posts.splice(i,1);
 					break;
@@ -73,7 +73,7 @@ module.exports = function (app) {
 			return postsByTag;
 		}
 
-		function findPostByUserId(userId){
+		function findPostsByUserId(userId){
 			var postsByUser = [];
 			for(var i=0;i<posts.length;i++){
 					if(posts[i].userId==userId){

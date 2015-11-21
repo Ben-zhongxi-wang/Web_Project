@@ -1,4 +1,4 @@
-var uuid = require('node-uuid');
+
 
 
 (function(){
@@ -21,7 +21,6 @@ var uuid = require('node-uuid');
 
         function createUser(newUser){
           var deferred=$q.defer();
-          newUser.id=uuid.v4();
           $http.post("/api/project/user",newUser)
             .success(function(user){
               console.log(user);

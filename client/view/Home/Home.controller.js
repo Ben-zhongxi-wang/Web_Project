@@ -5,10 +5,13 @@
 })();
 
 
-function homeController($scope,$rootScope,postService){
+/*function homeController($scope,$rootScope,PostService){
 	var model=this;
-	model.posts=postService.findPostsAll();
+	model.posts=PostService.findPostsAll();
 
+}*/
+
+
+function homeController($scope,$rootScope){
+	$scope.posts= window.data.posts;
 }
-
-

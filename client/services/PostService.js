@@ -10,6 +10,7 @@
 		findPostsAll: findPostsAll
 	}
 
+	return service;
 
 	function findPostsAll(){
 		var deferred=$q.defer();

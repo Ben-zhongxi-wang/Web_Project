@@ -14,7 +14,7 @@
 
 function individualController($scope,$rootScope, $routeParams){
 
-	$scope.post=window.data.posts.filter(function(x){
+	$scope.post=$rootScope.posts.filter(function(x){
 		return x.id===$routeParams.id;
 	})[0];
 

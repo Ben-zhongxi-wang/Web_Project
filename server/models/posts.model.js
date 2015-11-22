@@ -43,9 +43,24 @@ module.exports = function (app) {
 			return posts;
 		}
 
-		function findPostsAll(){
-			return posts;
+		function findPostsAll(searchText){
+		 	if (searchText === 'undefined' || searchText ===null ){
+				return posts;
+			}
+		 	else {
+				//console.log("test,test");
+				return posts.filter(function(post){
+					return 
+						post.title.indexOf(searchText)>-1 ||
+						post.author.indexOf(searchText)>-1 ||
+						post.tags.join().indexOf(searchText)>-1 ||
+						post.shortDescription.indexOf(searchText)>-1 ||
+						post.details.indexOf(searchText)>-1 ;});
+			}
 		}
+
+
+		
 
 		function findPostById(id){
 			var postById={};

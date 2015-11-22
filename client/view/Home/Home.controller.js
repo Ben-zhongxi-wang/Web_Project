@@ -12,6 +12,13 @@
 }*/
 
 
-function homeController($scope,$rootScope){
-	$scope.posts= window.data.posts;
+function homeController($scope,$rootScope,$location,PostService){
+	console.log($location.search().searchText);
+	PostService.findPostsAll($location.search().searchText)
+		.then(function(res){
+			$scope.posts=res.data;
+			$rootScope.posts=$scope.posts;
+		})
+
+
 }

@@ -10,6 +10,9 @@
         .when('/home',{
           templateUrl: './view/Home/Home.view.html'
         })
+        .when('/add',{
+          templateUrl: './view/Upload/Upload.view.html'
+        })
         .when('/upload/:id',{
           templateUrl: './view/Upload/Upload.view.html'
         })

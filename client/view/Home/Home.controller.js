@@ -14,6 +14,7 @@
 
 function homeController($scope,$rootScope,$location,PostService){
 	console.log($location.search().searchText);
+	$rootScope.currentPost='undefined';
 	PostService.findPostsAll($location.search().searchText)
 		.then(function(res){
 			$scope.posts=res.data;

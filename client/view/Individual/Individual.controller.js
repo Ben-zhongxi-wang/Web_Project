@@ -18,6 +18,7 @@ function individualController($scope,$rootScope, $routeParams){
 		return x.id===$routeParams.id;
 	})[0];
 
+	$rootScope.currentPost=$scope.post;
 	//$scope.youtubeUrl="http://www.youtube.com/embed/"+$scope.post.youtube+"?autoplay=0";
 
 

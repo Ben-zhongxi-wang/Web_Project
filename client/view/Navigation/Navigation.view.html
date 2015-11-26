@@ -9,20 +9,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../index.html">Main page</a>
+            <a class="navbar-brand" href="#/home">Main page</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#/">My posts</a>
+                    <a href="#">My posts</a>
                 </li>
+
                 <li>
-                    <a href="../Upload/Upload.view.html">New post</a>
+                    <a href="#/add">New post</a>
                 </li>
+
+
+                <!-- To-do: this part should only when the user is logged in, and the user
+                is one the post he has created -->
                 <li>
-                    <a href="../Upload/Upload.view.html">Edit this post</a>
+                    <a href="#/uplooad/{{currentPost.id}}">Edit this post</a>
                 </li>
+
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -33,12 +41,13 @@
                           <li class="divider"></li>
                         </div>
 
-                        <li><a href="../index.html">Log Out</a></li>
 
 
-                        
-                        <li><a href="../Registration/Registration.view.html">Register</a></li>
-                        <li><a href="../Contact/Contact.view.html">Contact Adminstrator</a></li>
+                        <li><a ng-click='logout()'>Log Out</a></li>
+
+
+                        <li><a href="#/registration">Register</a></li>
+                        <li><a href="#/contact">Contact Adminstrator</a></li>
                     </ul>
                 </li>
 

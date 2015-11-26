@@ -1,5 +1,6 @@
 var posts = require ("./posts.mockup.json");
 
+"use strict";
 
 module.exports = function (app) {
 
@@ -49,18 +50,23 @@ module.exports = function (app) {
 			}
 		 	else {
 				//console.log("test,test");
-				return posts.filter(function(post){
-					return 
-						post.title.indexOf(searchText)>-1 ||
-						post.author.indexOf(searchText)>-1 ||
-						post.tags.join().indexOf(searchText)>-1 ||
-						post.shortDescription.indexOf(searchText)>-1 ||
-						post.details.indexOf(searchText)>-1 ;});
+				var results = posts.filter(function(post){
+					console.log("------>");
+					console.log(post.title);
+					console.log(post.title.indexOf(searchText)>-1);
+					console.log("<------");
+					return post.title.indexOf(searchText)>-1 || post.author.indexOf(searchText)>-1;
+						// post.tags.join().indexOf(searchText)>-1 ||
+						// post.shortDescription.indexOf(searchText)>-1 ||
+						// post.details.indexOf(searchText)>-1 ;
+					});
+
+					console.log(results);
 			}
 		}
 
 
-		
+
 
 		function findPostById(id){
 			var postById={};

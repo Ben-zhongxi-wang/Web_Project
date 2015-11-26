@@ -19,6 +19,9 @@
         .when('/contact',{
           templateUrl: './view/Contact/Contact.view.html'
         })
+        .when('/registration',{
+          templateUrl: './view/Registration/Registration.view.html'
+        })
         .when('/individual/:id',{
           templateUrl: './view/Individual/Individual.view.html'
         })

@@ -13,21 +13,29 @@ module.exports = function(app, model){
 
   function createUser(req,res){
     var newUser = req.body;
-    res.json(model.createUser(newUser));
+    model.createUser(newUser).then(function(users){
+        res.json(users);
+    });
   }
 
   function findUsersAll(req,res){
-    res.json(model.findUsersAll());
+    model.findUsersAll().then(function(users){
+        res.json(users);
+    });
   }
 
   function findUserById(req,res){
     var id = req.params.id;
-    res.json(model.findUserById(id));
+    model.findUserById(id).then(function(user){
+        res.json(user);
+    });
   }
 
   function findUserByAccount(req,res){
     var account=req.body;
-    res.json(model.findUserByAccount(account));
+    model.findUserByAccount(account).then(function(user){
+        res.json(user);
+    });
   }
 
 
@@ -38,25 +46,31 @@ module.exports = function(app, model){
         activation!==undefined){
           var credentials={username:username,
             activation:activation};
-          res.json(model.findUserByCredentials(credentials));
+          model.findUserByCredentials(credentials).then(function(user){
+              res.json(user);
+          });
     }
     else{
       alert("check your input, please");
-      //?? To-do: what should I return here?
+      //?? TODO: what should I return here?
+        model.findUsersAll().then(function(user){
+          res.json(user);})
     }
-    //??
   }
 
 
   function updateUserById(req,res){
     var id=req.params.id;
-    res.json(model.updateUserById(id));
+    model.updateUserById(id).then(function(user){
+          res.json(user)
+    })
   }
 
 
   function deleteUserById(req,res){
     var id=req.params.id;
-    res.json(model.deleteUserById(id));
+    model.deleteUserById(id).then(function(users){
+          res.json(users)
+    })
   }
-
 }

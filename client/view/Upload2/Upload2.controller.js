@@ -22,7 +22,7 @@ function uploadController($scope,$rootScope,$location,$routeParams,PostService,U
 
 
 	$scope.submitPost=function(){
-		PostService.updatePostById(postId,$scope.post)
+		PostService.createPost($scope.post)
 		.then(function(){
 			$location.path("/home");
 		})

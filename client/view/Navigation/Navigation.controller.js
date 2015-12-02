@@ -6,7 +6,11 @@
 
 
 function navigationController($http,$rootScope,$scope,$location){
-		$scope.currentUser=$rootScope.currentUser;
+
+	$rootScope.currentUser=   {"id": 123, "Name": "Alice", "account":"alice@gmail.com" ,    "activation": "alice"};
+
+
+			$scope.currentUser=$rootScope.currentUser;
 		$scope.currentPost=$rootScope.currentPost;
 		$scope.searching=function(){
 			$location.path("/home").search('searchText',$scope.searchText);

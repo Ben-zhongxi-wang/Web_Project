@@ -12,7 +12,17 @@
                 <p class="lead"> by {{post.author}}</p>
                 <hr>
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span>Posted on{{post.time}}</p>
+                <div class="row">
+                    <div class="col-md-3"><span class="glyphicon glyphicon-time"></span>Posted on {{post.time}}
+                    </div>
+
+                    <div class="pull-right col-md-1" ng-show="allowEdit">
+                        <a href="#/upload/{{post._id}}">
+                            Editor
+                        </a>
+                    </div>
+                </div>
+
                 <hr>
 
                 <!-- Preview Image -->

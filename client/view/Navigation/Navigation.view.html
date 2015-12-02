@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">My posts</a>
+                    <a href="#/home?user={{currentUser.id}}">My posts</a>
                 </li>
 
                 <li>
@@ -23,23 +23,14 @@
                 </li>
 
 
-                <!-- To-do: this part should only when the user is logged in, and the user
-                is one the post he has created -->
-                <li>
-                    <a href="#/uplooad/{{currentPost.id}}">Edit this post</a>
-                </li>
-
-
-
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">My Account<b class="caret"></b></a>
                     <ul class="dropdown-menu">
 
-                        <div ng-show="currentUser">
-                          <li class="divider"></li>
-                            <li><a class="pull-middle">{{currentUser.Name}}</a></li>
-                          <li class="divider"></li>
-                        </div>
+
+                         <li ng-show="currentUser"><a class="pull-middle">{{currentUser.Name}}</a></li>
+                          <li class="divider" ng-show="currentUser"></li>
+
 
 
 

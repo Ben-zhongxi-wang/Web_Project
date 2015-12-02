@@ -1,9 +1,24 @@
 var express=require("express");
 var app=express();
-app.use(express.static(__dirname + '/client'));
+
+var mongoose = require('mongoose');
+
+var localMongoPath = 'mongodb://localhost/cs5610fall2015';
+var mongoConnectionPath = (process.env.OPENSHIFT_MONGODB_DB_URL || localMongoPath);
+mongoose.connect(mongoConnectionPath);
+var db = mongoose.connection;
+
+
 
 var bodyParser = require('body-parser');
+var multer = require('multer');
+
+
 app.use(bodyParser.json());
+app.use(multer());
+
+
+app.use(express.static(__dirname + '/client'));
 
 
 
@@ -12,5 +27,5 @@ var port=process.env.OPENSHIFT_NODEJS_PORT||3000;
 
 
 
-require("./server/app.js")(app);
+require("./server/app.js")(app,mongoose,db);
 app.listen(port,ipaddress);

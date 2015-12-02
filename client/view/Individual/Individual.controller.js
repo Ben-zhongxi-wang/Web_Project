@@ -12,13 +12,29 @@
 }*/
 
 
-function individualController($scope,$rootScope, $routeParams){
+function individualController($scope,$rootScope, $routeParams,PostService){
 
-	$scope.post=$rootScope.posts.filter(function(x){
-		return x.id===$routeParams.id;
-	})[0];
+	//$scope.post=$rootScope.posts.filter(function(x){
+	//		return x.id===$routeParams.id;
+	//	})[0];
+	//}
 
-	$rootScope.currentPost=$scope.post;
+	PostService.findPostById($routeParams.id)
+				.then(function(res){
+			$scope.post=res.data;
+			//$rootScope.posts=$scope.posts;
+					console.log($scope.post);
+					$scope.allowEdit=$rootScope.currentUser.id==$scope.post.userId;
+					});
+
+
+
+
+
+
+
+
+
 	//$scope.youtubeUrl="http://www.youtube.com/embed/"+$scope.post.youtube+"?autoplay=0";
 
 

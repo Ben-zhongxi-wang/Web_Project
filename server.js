@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(multer());
 
 
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/client/'));
 
 
 
@@ -27,5 +27,12 @@ var port=process.env.OPENSHIFT_NODEJS_PORT||3000;
 
 
 
+
+
 require("./server/app.js")(app,mongoose,db);
 app.listen(port,ipaddress);
+
+/*
+app.use(function(req, res) {
+    res.sendfile(__dirname + '/client/index.html');
+});*/

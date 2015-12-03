@@ -34,7 +34,7 @@
 		}
 
 		function updatePostById(postId,post){
-			console.log(post);
+			//console.log(post);
 			return $http.put("/api/project/post/"+postId, post);
 		}
 	}

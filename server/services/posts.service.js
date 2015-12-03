@@ -33,7 +33,7 @@ module.exports = function (app,model){
   }
 
   function findPostsAll(req,res){
-    console.log(req.query.searchText);
+    //console.log(req.query.searchText);
     model.findPostsAll(req.query.searchText).then(function(posts){
           res.json(posts);
     });
@@ -57,7 +57,7 @@ module.exports = function (app,model){
 
   function findPostsByUserId(req,res){
     var userId=req.params.userId;
-    model.findPostsByUserId(userId).then(function(post){
+    model.findPostsByUserId(userId).then(function(posts){
           res.json(posts);
     });
   }

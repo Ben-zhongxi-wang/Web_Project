@@ -13,13 +13,14 @@
 
 
 function homeController($scope,$rootScope,$location,PostService){
-	console.log($location.search().user);
+	// console.log($location.search().user);
 	var userId=$location.search().user;
 
 	if (userId) {
 		PostService.findPostsByUserId($location.search().user)
 				.then(function (res) {
 					$scope.posts = res.data;
+					//console.log($scope.posts);
 				});
 	}
 

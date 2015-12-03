@@ -23,9 +23,9 @@ function individualController($scope,$rootScope, $routeParams,PostService){
 				.then(function(res){
 			$scope.post=res.data;
 			//$rootScope.posts=$scope.posts;
-					console.log($scope.post);
-					$scope.allowEdit=$rootScope.currentUser.id==$scope.post.userId;
-					});
+					//console.log($scope.post);
+					$scope.allowEdit=$rootScope.currentUser._id==$scope.post.userId;
+				});
 
 
 

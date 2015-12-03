@@ -4,7 +4,7 @@
     .config(Configuration)
 
 
-    function Configuration($routeProvider,$sceProvider)
+    function Configuration($routeProvider,$sceProvider,$locationProvider)
     {
       $routeProvider
         .when('/home',{
@@ -13,12 +13,18 @@
         .when('/add',{
           templateUrl: './view/Upload/Upload.view.html'
         })
-        .when('/upload/:id',{
-          templateUrl: './view/Upload/Upload.view.html'
+        .when('/editor/:id',{
+          templateUrl: './view/Editor/Editor.view.html'
         })
+          .when('/upload',{
+            templateUrl: './view/Upload/Upload.view.html'
+          })
         .when('/contact',{
           templateUrl: './view/Contact/Contact.view.html'
         })
+          .when('/login',{
+            templateUrl:'./view/Login/Login.view.html'
+          })
         .when('/registration',{
           templateUrl: './view/Registration/Registration.view.html'
         })
@@ -30,7 +36,7 @@
         });
 
       $sceProvider.enabled(false);
-
+      $locationProvider.html5Mode(true);
 
 
 

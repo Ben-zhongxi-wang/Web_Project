@@ -20,7 +20,7 @@ module.exports = function (app, mongoose, db) {
 
 		function createPost(post){
 			var deferred = q.defer();
-			console.log(post);
+			//console.log(post);
 			PostModel.create(post,function(err,doc){
 				PostModel.find(function(err,posts){
 					deferred.resolve(posts);
@@ -134,8 +134,8 @@ module.exports = function (app, mongoose, db) {
 
 		function findPostsByUserId(userId){
 			var deferred = q.defer();
-			PostModel.find({userId: userId}, function(err, post){
-				deferred.resolve(post);
+			PostModel.find({userId: userId}, function(err, posts){
+				deferred.resolve(posts);
 			})
 			return deferred.promise;
 		}

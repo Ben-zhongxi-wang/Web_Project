@@ -50,6 +50,7 @@ module.exports = function (app,model){
 
   function findPostsByTag(req,res){
     var tag=req.params.tag;
+    console.log(tag);
     model.findPostsByTag(tag).then(function(posts){
           res.json(posts);
     });

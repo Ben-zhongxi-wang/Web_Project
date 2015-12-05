@@ -21,22 +21,13 @@ function individualController($scope,$rootScope, $routeParams,PostService){
 
 	PostService.findPostById($routeParams.id)
 				.then(function(res){
-			$scope.post=res.data;
-			//$rootScope.posts=$scope.posts;
+					$scope.post=res.data;
+				//$rootScope.posts=$scope.posts;
 					//console.log($scope.post);
 					$scope.allowEdit=$rootScope.currentUser._id==$scope.post.userId;
+					$scope.tags=$scope.post.tags;
 				});
 
 
 
-
-
-
-
-
-
-	//$scope.youtubeUrl="http://www.youtube.com/embed/"+$scope.post.youtube+"?autoplay=0";
-
-
-	//console.log($scope.post);
 }

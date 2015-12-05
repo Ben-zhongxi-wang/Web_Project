@@ -11,7 +11,8 @@
 			findPostsAll: findPostsAll,
 			findPostById: findPostById,
 			findPostsByUserId: findPostsByUserId,
-			updatePostById: updatePostById
+			updatePostById: updatePostById,
+			findPostsByTag: findPostsByTag
 		}
 
 		return service;
@@ -36,6 +37,11 @@
 		function updatePostById(postId,post){
 			//console.log(post);
 			return $http.put("/api/project/post/"+postId, post);
+		}
+
+		function findPostsByTag(tag){
+			console.log(tag);
+			return $http.get("/api/project/post/tag/"+tag);
 		}
 	}
 

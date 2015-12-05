@@ -123,7 +123,7 @@ module.exports = function (app, mongoose, db) {
 
 		function findPostsByTag(tag){
 			var deferred= q.defer();
-			Postmodel.find({tags:tag},function(err,posts){
+			PostModel.find({tags:tag},function(err,posts){
 				deferred.resolve(posts);
 			})
 			return deferred.promise;

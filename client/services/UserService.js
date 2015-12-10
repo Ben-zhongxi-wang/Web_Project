@@ -25,8 +25,8 @@
         }
 
         function findUsersAll(){
-    
-          return $http.get("api/project/user");
+            console.log("findUsersAll");
+          return $http.get("/api/project/usersall");
         }
 
 
@@ -34,30 +34,29 @@
        
           //to-do: not very sure about this url
 
-          return $http.get("api/project/user/"+id);
+          return $http.get("/api/project/user/"+id);
         }
 
         function findUserByAccount(account){
 
-          return $http.get("api/project/user/account/"+account);
+          return $http.get("/api/project/user/account/"+account);
         }
 
 
         function findUserByCredentials(username,activation){
           //Totally unsure about this
-          return $http.get("api/project/user/credential?username="+username+"&activation="+activation);
+          return $http.get("/api/project/user/credential?username="+username+"&activation="+activation);
         }
 
 
-        function updateUserById(account){
+        function updateUserById(id,user){
 
-          return $http.put("api/project/user/"+id);
+          return $http.put("/api/project/user/"+id,user);
         }
 
 
         function deleteUserById(id){
-
-          return $http.delete("/api/assignment/user/"+id);
+          return $http.delete("/api/project/user/"+id);
         }
 
 

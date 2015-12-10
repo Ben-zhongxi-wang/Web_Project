@@ -1,12 +1,12 @@
 module.exports = function(app, model){
 
   app.post("/api/project/user",createUser);
-  app.get("api/project/user",findUsersAll);
-  app.get("api/project/user/:id",findUserById);
-  app.get("api/project/user/account/:account",findUserByAccount);
-  app.get("api/project/user/credentials/:username/:activation",findUserByCredentials);
-  app.put("api/project/user/:id",updateUserById);
-  app.delete("api/project/user/:id",deleteUserById);
+  app.get("/api/project/usersall",findUsersAll);
+  app.get("/api/project/user/:id",findUserById);
+  app.get("/api/project/user/account/:account",findUserByAccount);
+  app.get("/api/project/user/credentials/:username/:activation",findUserByCredentials);
+  app.put("/api/project/user/:id",updateUserById);
+  app.delete("/api/project/user/:id",deleteUserById);
 
 
 
@@ -61,8 +61,10 @@ module.exports = function(app, model){
 
   function updateUserById(req,res){
     var id=req.params.id;
-    model.updateUserById(id).then(function(user){
-          res.json(user)
+    var user=req.body;
+    //console.log(user);
+    model.updateUserById(id,user).then(function(users){
+          res.json(users);
     })
   }
 

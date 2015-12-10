@@ -23,8 +23,20 @@ function editorController($scope,$rootScope,$location,$routeParams,PostService,U
 
 	$scope.submitPost=function(){
 		PostService.updatePostById(postId,$scope.post)
-		.then(function(){
-			$location.path("/home");
-		})
+				.then(function(){
+					$location.path("/home");
+				})
+	}
+
+
+	$scope.deletePost=function(){
+		var r=confirm("'Are you sure you want to delete this post?");
+		if (r==true) {
+			PostService.deletePostById(postId)
+					.then(function () {
+						$location.path("/home");
+					})
+		}
+
 	}
 }

@@ -31,14 +31,15 @@
         .when('/individual/:id',{
           templateUrl: './view/Individual/Individual.view.html'
         })
+          .when('/admin',{
+            templateUrl: './view/Administrator/Administrator.view.html'
+        })
         .otherwise({
             redirectTo:'/home'
         });
 
       $sceProvider.enabled(false);
       $locationProvider.html5Mode(true);
-
-
 
     }
 })();

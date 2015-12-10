@@ -12,6 +12,8 @@ module.exports=function(app, mongoose, db){
 		createUser : createUser,
 		findUsersAll: findUsersAll,
 		findUserById: findUserById,
+		findUserByGoogleId: findUserByGoogleId,
+		findOrCreate: findOrCreate,
 		findUserByAccount: findUserByAccount,
 		findUserByCredentials: findUserByCredentials,
 		updateUserById: updateUserById,
@@ -46,6 +48,21 @@ module.exports=function(app, mongoose, db){
 		return deferred.promise;
 	}
 
+	function findUserByGoogleId(googleid){
+		var deferred = q.defer();
+		UserModel.findOne({GoogleId:googleid}, function(err,user){
+			deferred.resolve(user);
+		})
+		return deferred.promise;
+	}
+
+
+	function findOrCreate(user){
+		return findUserByGoogleId(user.GoogleId) || createUser(user) ;
+
+	}
+
+
 	function findUserByAccount(account){
 		var deferred = q.defer();
 		UserModel.findOne({Account: account}, function(err, user){
@@ -67,11 +84,14 @@ module.exports=function(app, mongoose, db){
 
 
 	function updateUserById(id,updatedUser){
+
+		console.log(updatedUser);
 		var deferred = q.defer();
 
 		UserModel.update({_id:id},{$set:{
 			Name: updatedUser.Name,
-			Account: updatedUser.Account
+			account: updatedUser.account,
+			role: updatedUser.role
 		}}, function(err,user){
 			UserModel.find(function(err,users){
 				deferred.resolve(users);
@@ -82,6 +102,7 @@ module.exports=function(app, mongoose, db){
 	}
 
 	function deleteUserById(id){
+		console.log(id);
 		var deferred= q.defer();
 		UserModel.findById(id).remove(function(err,removed){
 			UserModel.find(function(err,users){

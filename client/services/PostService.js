@@ -12,7 +12,8 @@
 			findPostById: findPostById,
 			findPostsByUserId: findPostsByUserId,
 			updatePostById: updatePostById,
-			findPostsByTag: findPostsByTag
+			findPostsByTag: findPostsByTag,
+			deletePostById: deletePostById
 		}
 
 		return service;
@@ -40,8 +41,12 @@
 		}
 
 		function findPostsByTag(tag){
-			console.log(tag);
+			//console.log(tag);
 			return $http.get("/api/project/post/tag/"+tag);
+		}
+
+		function deletePostById(id){
+			return $http.delete("/api/project/post/"+id);
 		}
 	}
 
